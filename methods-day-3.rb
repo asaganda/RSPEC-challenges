@@ -39,5 +39,5 @@ def returns_countable(n)
     n
   else
     n.split
-  else
+  end
 end
