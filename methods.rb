@@ -52,6 +52,61 @@ def interpose(array1, array2)
   #   [array1[i], array2[i]]
   # end
 
-  # shorter enumerator way of writing the method
+  # shorter enumerator way of writing the method, takes the 2 arrays and zips them together like a zipper
   array1.zip(array2)
 end
+
+class Doubler
+  def new
+    @complete = false
+  end
+
+  def complete!
+    @complete = true
+  end
+
+  def double(n)
+    n * 2
+  end
+end
+
+class CashDoubler
+  def initialize(doubler)
+
+    # dependency injection!
+
+    # we're giving cash doubler
+    # an object which it will
+    # depend on to do some of
+    # its work
+    @doubler = doubler
+  end
+
+  def double_cash(cash_string)
+    # do the actual work
+    num = cash_string[/\d/].to_i
+
+    # delegate some work to the injected
+    # doubler!
+    num = @doubler.double(num)
+    num = "$#{num}"
+
+    # mark the task complete (we are 
+    # assuming the doubler can only
+    # be used once)
+    @doubler.complete!
+
+    # return the actual result
+    num
+  end
+end
+
+
+
+
+
+
+
+
+
+
