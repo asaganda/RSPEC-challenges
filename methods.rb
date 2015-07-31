@@ -18,11 +18,17 @@ def titleize(string)
   non_capitals = ['a', 'of', 'the', 'an']
 
   # splits the string and downcases each word
+  # so the array(in this scenario) looks like this at this point:
+  # [A, Dream, of, Spring]
   string.split(' ').map.with_index do |word, i|
     word.downcase!
+    # upcase the first letter of each "word" if the index is 0   
     if i == 0
       word[0] = word[0].upcase
     else
+      # if we have non_capitals included in the "word", then
+      # this leaves the non_capitals first letter(0 index) as 
+      # downcase because we have the "!"(bang) called on it
       if !non_capitals.include?(word)
         word[0] = word[0].upcase
       end
