@@ -2,6 +2,10 @@ def array_doubler(array)
   #should return an array with every element doubled
   #doubling implementation goes here
 
+  # .map maps over each value in the array and does whatever task to each value,
+  # in this case, multiplying each value by 2
+  array = array.map{|i| i * 2}
+
   #you must leave this here in the final implementation
   #but you can comment it out to get your tests
   #to pass when working on the doubling part
@@ -9,6 +13,10 @@ def array_doubler(array)
 end
 
 def squarer(array)
+  # raises an error if the items in the array aren't integers..such as floats(3.5)
+  raise ArgumentError unless array.all? { |i| i.is_a?(Integer)}
+
+  array.map{|i| i * i}
 
   #for this one, you should test 3 things
   #
@@ -27,6 +35,8 @@ def random_adder(num)
   # a random amount between 1 and 10.
   # Your test should confirm that the result falls
   # within the acceptable range.
+
+  # a random number between 1 and 10 gets added to "num"
   num + rand(1..10)
 end
 

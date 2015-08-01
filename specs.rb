@@ -97,3 +97,50 @@ describe CashDoubler do
   end
 end
 
+# Third, methods-day-3.rb
+
+describe '#array_doubler' do
+  it 'doubles every element in the array before shuffling' do
+    arr = [1, 2, 3]
+    expect(array_doubler(arr)).to match_array([2, 4, 6])
+  end
+end
+
+describe '#squarer' do
+  it 'squares every element in the input array' do
+    arr = [1, 2, -3, 4]
+    expect(squarer(arr)).to eq [1, 4, 9, 16]
+  end
+
+  it 'results in only positive integers' do
+    arr = [1, 2, 3, -4, 0]
+    expect(squarer(arr)).to all( be >= 0)
+  end
+
+  it 'raises an error if a non-integer is included in the input array' do
+    arr = [1, 3.5, 3, -4]
+    expect{squarer(arr) }.to raise_error(ArgumentError)
+  end
+end
+
+describe "rand_adder" do
+  it 'adds between 1 and 10 to a number' do
+    15.times do
+      expect(random_adder(0)).to be_between(1, 10)
+    end
+  end
+end
+
+describe "returns_countable" do
+  it 'returns a string or array' do
+    expected_classes = [String, Array]
+
+    expect(expected_classes).to include(returns_countable("foo").class)
+  end
+
+  it 'returns something that responds to length' do
+    result = returns_countable("foo")
+    expect(result).to respond_to(:length)
+  end
+end
+
