@@ -97,6 +97,7 @@ describe CashDoubler do
   end
 end
 
+<<<<<<< HEAD
 # Third, methods-day-3.rb
 
 describe '#array_doubler' do
@@ -125,6 +126,7 @@ end
 
 describe "rand_adder" do
   it 'adds between 1 and 10 to a number' do
+    # we have 15.times do because the implication of the method has a random factor
     15.times do
       expect(random_adder(0)).to be_between(1, 10)
     end
@@ -143,4 +145,3 @@ describe "returns_countable" do
     expect(result).to respond_to(:length)
   end
 end
-
